@@ -9,33 +9,61 @@
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown link
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div class="container mt-3">
     <div class="row">
-          <div class="col-sm-8 text-end">
-            
-          </div>
-          <div class="col-sm-2 text-end">
-            <a href="/sessions/new" class="btn btn-default">Login</a> |
-          </div>
-          <div class="col-sm-2 text-end">
-            <a href="/users/new"  class="btn btn-default">Sign Up</a>
-          </div>
-    
+      <div class="col-9">
+        <%= flash[:notice] %>
       </div>
-    </div>
-    <div>
-      <%= flash[:notice] %>
-    </div>
-    
-    <div>
       
-    </div>
+      <div class="col-3 text-end">
+        <% if @current_user %>
+          Logged in as: <%= @current_user.first_name %>
+          <%= button_to "Logout", "/sessions/logout", method: :delete %>
+        <% else %>
+          <a href="/sessions/new" class="btn btn-default">Login</a> |
+          <a href="/users/new" class="btn btn-default">Sign Up</a>
+        <% end %>
+      </div>
+     </div> 
+    
+   
 
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-9">
       <h1>Tacostagram</h1>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-3 text-end">
         <a href="/posts/new/"  class="btn btn-success">New Post</a>
       </div>
     </div>

@@ -1,6 +1,6 @@
-<div>
+<div class="row">
   <% for post in @posts %>
-    <div>
+    <div class="col-md-3 col-sm-6">
       <h4>
         <!-- TODO: display the name of the user that created the post -->
         <% if post.user %>
@@ -9,7 +9,7 @@
           anonymous
         <% end %>
       </h4>
-      <img src="<%= post.image %>">
+      <img src="<%= post.image %>" class="img-fluid"> 
       <p><%= post.body %></p>
     </div>
   <% end %>
